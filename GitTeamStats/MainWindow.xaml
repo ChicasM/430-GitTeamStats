@@ -9,21 +9,22 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
 
-
+    <Window.Resources>
+        <DataTemplate DataType="{x:Type viewmodels:LaunchVM}">
+            <views:LaunchPage/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels:StatsVM}">
+            <views:StatsPage/>
+        </DataTemplate>
+    </Window.Resources>
     
-    <Grid Name="Homepage">
+    <Grid>
 
-        <Rectangle x:Name="Backgorund" Fill="#FFD1D1F3" Grid.ColumnSpan="2"/>
+        <ContentControl Content="{Binding}"/>
+
+        <Rectangle x:Name="Backgorund" Grid.ColumnSpan="2"/>
         <Rectangle x:Name="headerBar" Fill="#FF323232" Grid.ColumnSpan="2" Height="41" VerticalAlignment="Top"/>
         <Label x:Name="headerLbl" Content="Github - Team Stats Viewer" VerticalAlignment="Top" Height="41" FontSize="24" Foreground="#FFF0F0F0" FontWeight="Bold" HorizontalAlignment="Left" Width="343"/>
-             
-        
-        <Grid x:Name="LaunchPage" Visibility="Hidden">
-            <views:LaunchPage Margin="10,10,0,0" HorizontalAlignment="Left" Width="782" Height="409" VerticalAlignment="Top"/>
-        </Grid>
-        <Grid Visibility="Visible">
-            <views:StatsPage Margin="0,-27,0,0" />
-        </Grid>
 
     </Grid>
 </Window>

@@ -13,6 +13,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+using GitTeamStats.ViewModels;
+
 namespace GitTeamStats.Views
 {
     /// <summary>
@@ -34,6 +36,11 @@ namespace GitTeamStats.Views
                 directoryTxt.Text = openFileDialog.FileName;
             }
 
+        }
+
+        private void ViewstatBtn_Click(object sender, RoutedEventArgs e)
+        {
+            Window.GetWindow(this).DataContext = new StatsVM();
         }
     }
 }

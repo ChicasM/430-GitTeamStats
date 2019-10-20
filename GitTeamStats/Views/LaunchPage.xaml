@@ -6,9 +6,11 @@
              xmlns:local="clr-namespace:GitTeamStats.Views"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
+    
+    
+    <Grid Background="#FFD1D1F3">
         <ComboBox x:Name="prevProjbox" Margin="150,162,0,0" HorizontalAlignment="Left" Width="491" Height="34" VerticalAlignment="Top"/>
-        <Button x:Name="viewstatBtn" Content="VIEW STATS" Margin="327,214,0,0" FontSize="16" FontWeight="Bold" Background="#FF1D8CFB" Foreground="#FFFFF1F1" HorizontalAlignment="Left" Width="137" Height="40" VerticalAlignment="Top"/>
+        <Button x:Name="viewstatBtn" Content="VIEW STATS" Margin="327,214,0,0" FontSize="16" FontWeight="Bold" Background="#FF1D8CFB" Foreground="#FFFFF1F1" HorizontalAlignment="Left" Width="137" Height="40" VerticalAlignment="Top" Click="ViewstatBtn_Click"/>
         <TextBox x:Name="directoryTxt" HorizontalAlignment="Left" Height="23" Margin="514,344,0,0" TextWrapping="Wrap" Text="Browse for Directory" VerticalAlignment="Top" Width="255" Background="#FFC3C3C3" Foreground="#FF747474"/>
         <Button x:Name="bowseBtn" Content="Choose Folder" HorizontalAlignment="Left" Margin="514,372,0,0" VerticalAlignment="Top" Width="116" Click="BowseBtn_Click"/>
         <Button x:Name="linkprojBtn" Content="Link Project" HorizontalAlignment="Left" Margin="653,372,0,0" VerticalAlignment="Top" Width="116"/>

@@ -7,31 +7,58 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
 
-    <Grid x:Name="statsPage">
-        <Button x:Name="homeBtn" Content="Main Menu" Margin="24,402,0,0" HorizontalAlignment="Left" Width="82" Height="23" VerticalAlignment="Top"/>
-        <DatePicker x:Name="dateStart" HorizontalAlignment="Left" Margin="278,402,0,0" VerticalAlignment="Top" Width="110"/>
-        <DatePicker x:Name="dateEnd" HorizontalAlignment="Left" Margin="471,401,0,0" VerticalAlignment="Top" Width="110"/>
-        <Label x:Name="startLbl" Content="Start Date" HorizontalAlignment="Left" Height="26" Margin="216,401,0,0" VerticalAlignment="Top" Width="110"/>
-        <Label x:Name="endLbl" Content="End Date" HorizontalAlignment="Left" Height="26" Margin="411,401,0,0" VerticalAlignment="Top" Width="110"/>
-        <Button x:Name="filterBtn" Content="File Filter" HorizontalAlignment="Left" Margin="712,391,0,0" VerticalAlignment="Top" Width="64" Height="45" FontWeight="Bold" Click="FilterBtn_Click"/>
+    <Grid x:Name="statsPage" Background="#FFD1D1F3" >
+        <Button x:Name="homeBtn" Content="Main Menu" Margin="24,373,0,0" HorizontalAlignment="Left" Width="82" Height="23" VerticalAlignment="Top" Click="HomeBtn_Click"/>
+        <DatePicker x:Name="dateStart" HorizontalAlignment="Left" Margin="346,374,0,0" VerticalAlignment="Top" Width="110"/>
+        <DatePicker x:Name="dateEnd" HorizontalAlignment="Left" Margin="539,373,0,0" VerticalAlignment="Top" Width="110"/>
+        <Label x:Name="startLbl" Content="Start Date" HorizontalAlignment="Left" Height="26" Margin="284,373,0,0" VerticalAlignment="Top" Width="110"/>
+        <Label x:Name="endLbl" Content="End Date" HorizontalAlignment="Left" Height="26" Margin="479,373,0,0" VerticalAlignment="Top" Width="110"/>
+        <Button x:Name="filterBtn" Content="File Filter" HorizontalAlignment="Left" Margin="712,362,0,0" VerticalAlignment="Top" Width="64" Height="45" FontWeight="Bold" Click="FilterBtn_Click"/>
+        <Rectangle x:Name="graphBG" Fill="#FF8FC4EA" HorizontalAlignment="Left" Height="313" Margin="275,46,0,0" VerticalAlignment="Top" Width="384"/>
 
-        <Grid x:Name="FilterPanel" Visibility="Hidden">
-            <Rectangle x:Name="filterPnl" Fill="#FF8FC4EA" HorizontalAlignment="Left" Height="381" Margin="672,69,0,0" VerticalAlignment="Top" Width="128"/>
-            <Button x:Name="filterSavebtn" Content="Save" HorizontalAlignment="Left" Margin="712,391,0,0" VerticalAlignment="Top" Width="64" Height="45" FontWeight="Bold" Click="FilterSavebtn_Click"/>
-            <CheckBox x:Name="filterCb" Content="CheckBox" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="687,117,0,0"/>
-            <CheckBox x:Name="filterCb_Copy" Content="CheckBox" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="687,137,0,0"/>
-            <CheckBox x:Name="filterCb_Copy1" Content="CheckBox" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="687,157,0,0"/>
-            <CheckBox x:Name="filterCb_Copy2" Content="CheckBox" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="687,177,0,0"/>
-            <CheckBox x:Name="filterCb_Copy3" Content="CheckBox" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="687,196,0,0"/>
-            <CheckBox x:Name="filterCb_Copy4" Content="CheckBox" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="687,216,0,0"/>
-            <CheckBox x:Name="filterCb_Copy5" Content="CheckBox" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="687,236,0,0"/>
-            <CheckBox x:Name="filterCb_Copy6" Content="CheckBox" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="687,256,0,0"/>
-            <CheckBox x:Name="filterCb_Copy7" Content="CheckBox" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="687,273,0,0"/>
-            <CheckBox x:Name="filterCb_Copy8" Content="CheckBox" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="687,293,0,0"/>
-            <CheckBox x:Name="filterCb_Copy9" Content="CheckBox" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="687,313,0,0"/>
-            <CheckBox x:Name="filterCb_Copy10" Content="CheckBox" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="687,333,0,0"/>
-            <Label x:Name="filterpnlLbl" Content="Select File Types" HorizontalAlignment="Left" Height="42" Margin="684,87,0,0" VerticalAlignment="Top" Width="104" FontWeight="Bold"/>
+        <Rectangle Fill="#FF8FC4EA" HorizontalAlignment="Left" Height="53" Margin="25,67,0,0" VerticalAlignment="Top" Width="205" Opacity="0.7"/>
+        <Button Margin="24,66,0,0" BorderBrush="{x:Null}" Background="#FF8FC4EA" Foreground="{x:Null}" HorizontalAlignment="Left" Width="207" Height="55" VerticalAlignment="Top" BorderThickness="3" Click="Button_Click">
+            <Button.Style>
+                <Style>
+                    <Style.Triggers>
+                        <Trigger Property="Button.IsMouseOver" Value="True">
+                            <Setter Property="Button.Foreground" Value="#FFD83737"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+        </Button>
+
+        <Image HorizontalAlignment="Left" Height="38" Margin="28,75,0,0" VerticalAlignment="Top" Width="42" Source="/GitTeamStats;component/Images/chicasGitimg.PNG"/>
+
+        <TextBlock x:Name="testName" HorizontalAlignment="Left" Margin="75,75,0,0" TextWrapping="Wrap" Text="Name" VerticalAlignment="Top"/>
+        <TextBlock x:Name="testEmail" HorizontalAlignment="Left" Margin="75,91,0,0" TextWrapping="Wrap" Text="Email" VerticalAlignment="Top" FontSize="8"/>
+        <TextBlock x:Name="testStats" HorizontalAlignment="Left" Margin="164,75,0,0" TextWrapping="Wrap" Text="stats" VerticalAlignment="Top" Height="38" Width="71" FontSize="7" Foreground="#FF2080D1"/>
+
+
+        <Image HorizontalAlignment="Left" Height="303" VerticalAlignment="Top" Width="365" Margin="285,54,0,0" Source="/GitTeamStats;component/Images/Graph.PNG"/>
+
+        <Rectangle x:Name="graphHide" Visibility="Hidden" Fill="#FF8FC4EA" HorizontalAlignment="Left" Height="102" Margin="469,152,0,0" VerticalAlignment="Top" Width="181"/>
+
+
+        <Grid x:Name="FilterPanel" Visibility="Hidden" Height="450" VerticalAlignment="Top" HorizontalAlignment="Left" Width="800" Margin="0,6,0,-6">
+            <Rectangle x:Name="filterPnl" Fill="#FF8FC4EA" HorizontalAlignment="Left" Height="415" Margin="672,35,0,0" VerticalAlignment="Top" Width="128"/>
+            <Button x:Name="filterSavebtn" Content="Save" HorizontalAlignment="Left" Margin="712,356,0,0" VerticalAlignment="Top" Width="64" Height="45" FontWeight="Bold" Click="FilterSavebtn_Click"/>
+            <CheckBox x:Name="filterCb" Content="CheckBox" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="689,83,0,0"/>
+            <CheckBox x:Name="filterCb_Copy" Content="CheckBox" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="689,103,0,0"/>
+            <CheckBox x:Name="filterCb_Copy1" Content="CheckBox" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="689,123,0,0"/>
+            <CheckBox x:Name="filterCb_Copy2" Content="CheckBox" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="689,143,0,0"/>
+            <CheckBox x:Name="filterCb_Copy3" Content="CheckBox" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="689,162,0,0"/>
+            <CheckBox x:Name="filterCb_Copy4" Content="CheckBox" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="689,182,0,0"/>
+            <CheckBox x:Name="filterCb_Copy5" Content="CheckBox" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="689,202,0,0"/>
+            <CheckBox x:Name="filterCb_Copy6" Content="CheckBox" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="689,222,0,0"/>
+            <CheckBox x:Name="filterCb_Copy7" Content="CheckBox" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="689,239,0,0"/>
+            <CheckBox x:Name="filterCb_Copy8" Content="CheckBox" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="689,259,0,0"/>
+            <CheckBox x:Name="filterCb_Copy9" Content="CheckBox" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="689,279,0,0"/>
+            <CheckBox x:Name="filterCb_Copy10" Content="CheckBox" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="689,299,0,0"/>
+            <Label x:Name="filterpnlLbl" Content="Select File Types" HorizontalAlignment="Left" Height="42" Margin="674,53,0,0" VerticalAlignment="Top" Width="104" FontWeight="Bold"/>
         </Grid>
+        <Label Content="Click User to Remove" HorizontalAlignment="Left" Margin="25,40,0,0" VerticalAlignment="Top" FontSize="9" Background="#FF9ACFE8" Foreground="#FF615C5C"/>
 
     </Grid>
 

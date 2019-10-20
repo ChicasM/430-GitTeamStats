@@ -120,6 +120,12 @@
   <ItemGroup>
     <Folder Include="Models\" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Graph.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\chicasGitimg.PNG" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

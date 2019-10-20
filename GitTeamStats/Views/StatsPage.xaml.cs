@@ -13,6 +13,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+using GitTeamStats.ViewModels;
+
 namespace GitTeamStats.Views
 {
     /// <summary>
@@ -23,7 +25,11 @@ namespace GitTeamStats.Views
         public StatsPage()
         {
             InitializeComponent();
+            testName.Text = "Milton Chicas";
+            testEmail.Text = "ChicasM@ferris.edu";
+            testStats.Text = "10 Commits \n12% Overall \n123 Additions \n600 Deletions";
         }
+
 
         private void FilterSavebtn_Click(object sender, RoutedEventArgs e)
         {
@@ -33,6 +39,21 @@ namespace GitTeamStats.Views
         private void FilterBtn_Click(object sender, RoutedEventArgs e)
         {
             FilterPanel.Visibility = Visibility.Visible;
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            if (graphHide.Visibility == Visibility.Visible)
+            {
+                graphHide.Visibility = Visibility.Hidden;
+            }
+            graphHide.Visibility = Visibility.Visible;
+            
+        }
+
+        private void HomeBtn_Click(object sender, RoutedEventArgs e)
+        {
+            Window.GetWindow(this).DataContext = new LaunchVM();
         }
     }
 }
