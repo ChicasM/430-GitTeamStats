@@ -62,8 +62,12 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="ViewModels\LaunchVM.cs" />
+    <Compile Include="ViewModels\StatsVM.cs" />
     <Compile Include="Views\LaunchPage.xaml.cs">
       <DependentUpon>LaunchPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\StatsPage.xaml.cs">
+      <DependentUpon>StatsPage.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -78,6 +82,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Views\LaunchPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\StatsPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
