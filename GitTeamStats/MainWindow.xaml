@@ -4,9 +4,27 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GitTeamStats"
+        xmlns:views="clr-namespace:GitTeamStats.Views"
+        xmlns:viewmodels="clr-namespace:GitTeamStats.ViewModels"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
+
+    <Window.Resources>
+        <DataTemplate DataType="{x:Type viewmodels:LaunchVM}">
+            <views:LaunchPage/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels:StatsVM}">
+            <views:StatsPage/>
+        </DataTemplate>
+    </Window.Resources>
+    
     <Grid>
-        
+
+        <ContentControl Content="{Binding}"/>
+
+        <Rectangle x:Name="Backgorund" Grid.ColumnSpan="2"/>
+        <Rectangle x:Name="headerBar" Fill="#FF323232" Grid.ColumnSpan="2" Height="41" VerticalAlignment="Top"/>
+        <Label x:Name="headerLbl" Content="Github - Team Stats Viewer" VerticalAlignment="Top" Height="41" FontSize="24" Foreground="#FFF0F0F0" FontWeight="Bold" HorizontalAlignment="Left" Width="343"/>
+
     </Grid>
 </Window>
