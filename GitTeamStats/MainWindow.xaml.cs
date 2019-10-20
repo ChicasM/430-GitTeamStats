@@ -13,6 +13,9 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+using GitTeamStats.ViewModels;
+
+
 namespace GitTeamStats {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -20,6 +23,8 @@ namespace GitTeamStats {
     public partial class MainWindow : Window {
         public MainWindow() {
             InitializeComponent();
+
+            DataContext = new LaunchVM();
         }
     }
 }
