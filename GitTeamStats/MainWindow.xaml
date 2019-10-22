@@ -7,7 +7,7 @@
         xmlns:views="clr-namespace:GitTeamStats.Views"
         xmlns:viewmodels="clr-namespace:GitTeamStats.ViewModels"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Name="myMainWindow" Height="450" Width="800">
 
     <Window.Resources>
         <DataTemplate DataType="{x:Type viewmodels:LaunchVM}">
@@ -17,8 +17,16 @@
             <views:StatsPage/>
         </DataTemplate>
     </Window.Resources>
-    
-    <Grid>
+
+    <Grid Name="MainGrid" SizeChanged="MainGrid_SizeChanged">
+        <Grid.LayoutTransform>
+            <ScaleTransform x:Name="ApplicationScaleTransform"
+                        CenterX="0"
+                        CenterY="0"
+                        ScaleX="{Binding ElementName=myMainWindow, Path=ScaleValue}"
+                        ScaleY="{Binding ElementName=myMainWindow, Path=ScaleValue}" />
+        </Grid.LayoutTransform>
+
 
         <ContentControl Content="{Binding}"/>
 
